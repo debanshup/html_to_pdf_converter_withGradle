@@ -16,7 +16,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.URL;
-
+import org.jsoup.select.Elements;
+// import javax.lang.model.util.Elements;
+import javax.swing.text.html.parser.Element;
 import javax.xml.stream.events.Namespace;
 
 public class HtmlToPdfConverter {
@@ -28,26 +30,43 @@ public class HtmlToPdfConverter {
 
         try {
             
-            // Document document = Jsoup.connect(websiteUrl).get();
-            // String docString = document.toString();
+            Document document = Jsoup.connect(websiteUrl).get();
+            String docString = document.toString();
+            Document parsedDocument = Jsoup.parse(docString);
+            // String html = parsedDocument.html();
+            // String css = document.cssSelector();
+            
+            // System.out.println(html);
+            int i = 0;
+           Elements styleElements = parsedDocument.select("style");
+           for (org.jsoup.nodes.Element element : styleElements) {
+               element.remove();
+               
+            }
+            System.out.println(i);
+            int j = 0;
+            Elements scriptElements = parsedDocument.select("script");
+            for (org.jsoup.nodes.Element element : scriptElements) {
+                element.remove();;
+                
+            }
+            System.out.println(j);
 
-            XHTMLPanel panel = new XHTMLPanel();
-            panel.setDocument(new File("path_name"));
-            System.out.println(panel.toString());
+            System.out.println(parsedDocument);
+            System.out.println(parsedDocument.documentType());
+            // XHTMLPanel panel = new XHTMLPanel();
+            // System.out.println(panel.toString());
             ITextRenderer renderer = new ITextRenderer();
-            renderer.setDocument(panel.getDocument(),null);
+            renderer.setDocumentFromString(parsedDocument.html());
            
 
             String pathName ="E:\\generated_pdf";
-            OutputStream outputStream = new FileOutputStream(pathName+"\\output1.pdf");
+            OutputStream outputStream = new FileOutputStream(pathName+"\\"+outputFileName+".pdf");
             renderer.layout();
             renderer.createPDF(outputStream);
             outputStream.close();
+            
             System.out.println("PDF generated successfully.");
-
-
-
-
 
 
 

@@ -7,9 +7,9 @@ public class App {
 
     public static void main(String[] args) {
         // HtmlToPdfConverter htmlToPdfConverter = new HtmlToPdfConverter();
-        String websiteUrl = "https://jsoup.org/apidocs/org/jsoup/parser/XmlTreeBuilder.html#%3Cinit%3E()";
-        // "https://www.google.com";
-        String outputFileName = "jsoup";
+        String websiteUrl = 
+        "http://info.cern.ch/hypertext/WWW/TheProject.html";
+        String outputFileName = "cern";
 
         HtmlToPdfConverter.convert(websiteUrl, outputFileName);
     }

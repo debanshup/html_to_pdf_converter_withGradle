@@ -21,11 +21,16 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
-    implementation("org.xhtmlrenderer:flying-saucer-pdf:9.1.22")
+    implementation("org.xhtmlrenderer:flying-saucer-pdf:9.7.2")
     // https://mvnrepository.com/artifact/org.jsoup/jsoup
     implementation("org.jsoup:jsoup:1.17.2")
     // https://mvnrepository.com/artifact/com.itextpdf/itextpdf
     implementation("com.itextpdf:itextpdf:5.5.13.3")
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    // implementation("org.seleniumhq.selenium:selenium-java:4.20.0")
+    // https://mvnrepository.com/artifact/com.guicedee.services/sl4j
+implementation("com.guicedee.services:sl4j:1.0.13.5")
+
 
 
 }
