@@ -32,7 +32,7 @@ public class HtmlToPdfConverter {
             // String docString = document.toString();
 
             XHTMLPanel panel = new XHTMLPanel();
-            panel.setDocument(new File("C:\\Users\\deban\\Documents\\sample.html"));
+            panel.setDocument(new File("path_name"));
             System.out.println(panel.toString());
             ITextRenderer renderer = new ITextRenderer();
             renderer.setDocument(panel.getDocument(),null);
